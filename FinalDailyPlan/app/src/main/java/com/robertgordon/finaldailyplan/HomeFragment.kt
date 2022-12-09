@@ -22,13 +22,15 @@ class HomeFragment : Fragment() {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         val viewModel = HomeViewModel()
 
+        viewModel.hasAGoal.observe(viewLifecycleOwner){hasAGoal ->
+            binding.homeError.text = hasAGoal
+        }
+
         binding.homeToGoalButton.setOnClickListener {
             findNavController().navigate(R.id.homeToGoal)
         }
         binding.homeToPlansButton.setOnClickListener {
-            if(viewModel.hasAGoalHome()) {
                 findNavController().navigate(R.id.homeToPlan)
-            }
         }
 
 

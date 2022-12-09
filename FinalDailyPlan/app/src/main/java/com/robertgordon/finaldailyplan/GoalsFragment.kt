@@ -22,10 +22,9 @@ class GoalsFragment : Fragment() {
         binding.goalToHomeButton.setOnClickListener {
             findNavController().navigate(R.id.goalToHome)
         }
+
         binding.goalToPlanButton.setOnClickListener {
-            if(viewModel.hasAGoal()) {
                 findNavController().navigate(R.id.goalToPlan)
-            }
         }
 
         binding.goalSave.setOnClickListener {
@@ -36,7 +35,6 @@ class GoalsFragment : Fragment() {
             binding.errorBox.text = errorMessage
         }
 
-
         binding.goalRecycler.adapter = GoalsAdapter(viewModel.goals){
             viewModel.toggleGoalCompletion(it)
 
@@ -45,7 +43,6 @@ class GoalsFragment : Fragment() {
         binding.goalRecycler.layoutManager = LinearLayoutManager(context)
 
         return binding.root
-
     }
 
 

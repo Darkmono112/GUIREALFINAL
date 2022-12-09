@@ -10,7 +10,7 @@ import com.robertgordon.finaldailyplan.models.Plan
 @Dao
 interface PlanDoa {
     @Query("SELECT * FROM `Plan`")
-    suspend fun getAllTodos(): List<Plan>
+    suspend fun getAllPlans(): List<Plan>
 
     @Insert
     suspend fun createPlan(plan:Plan): Long

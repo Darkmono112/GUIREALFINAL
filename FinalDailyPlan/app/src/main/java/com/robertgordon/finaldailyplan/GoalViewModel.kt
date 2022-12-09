@@ -73,9 +73,13 @@ class GoalViewModel:ViewModel() {
             GoalsRepository.createGoal(goal)
             goals.add(goal)
         }
+
     }
 
-    public fun hasAGoal():Boolean{
+    fun hasAGoal():Boolean{
+        viewModelScope.launch {
+            delay(1000)
+        }
         if(goals.size > 0){
             return true
         }
@@ -87,6 +91,7 @@ class GoalViewModel:ViewModel() {
 
         return false
     }
+
 
 
 }

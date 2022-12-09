@@ -53,9 +53,6 @@ class GoalsAdapter(val goals: ObservableArrayList<Goal>, val onGoalCLicked: (Goa
         }
     })
 
-
-
-
 }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

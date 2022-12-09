@@ -26,4 +26,64 @@
         android:text="Goals"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/planRecycler"
+        android:layout_width="410dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savePlan" />
+
+    <EditText
+        android:id="@+id/enterTime"
+        android:layout_width="83dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Hour"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planToHomeButton" />
+
+    <EditText
+        android:id="@+id/enterPlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:hint="Enter a Plan"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/enterTime"
+        app:layout_constraintStart_toEndOf="@+id/enterTime" />
+
+    <Button
+        android:id="@+id/savePlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Save Plan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterPlan" />
+
+    <Button
+        android:id="@+id/clearPlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear All "
+        app:layout_constraintBottom_toBottomOf="@+id/savePlan"
+        app:layout_constraintEnd_toStartOf="@+id/savePlan"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/errorMessagePlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/planToGoalButton"
+        app:layout_constraintStart_toEndOf="@+id/planToHomeButton"
+        app:layout_constraintTop_toBottomOf="@+id/planToHomeButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
