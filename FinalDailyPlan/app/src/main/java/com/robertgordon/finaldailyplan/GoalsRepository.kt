@@ -39,7 +39,6 @@ object GoalsRepository{
         }] = goal
     }
 
-    //TODO delete goal
 
     suspend fun delGoal(goal: Goal){
         db.getGoalDoa().deleteGoal(goal)

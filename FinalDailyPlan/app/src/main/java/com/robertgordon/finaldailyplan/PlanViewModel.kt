@@ -28,16 +28,27 @@ class PlanViewModel:ViewModel() {
 
 
     fun updatePlans(planText: String, hour : Long){
-
+        var toUpdate = plans[plans.indexOfFirst {
+            it.time == hour
+        }]
+        if(planText.isNotBlank()){
+            val newPlan = Plan(hour, planText)
+            viewModelScope.launch {
+                PlansRepo.update(newPlan)
+                plans.remove(toUpdate)
+                plans.add(newPlan)
+            }
+        }
     }
 
     fun createPlan(planText: String, hour: Long){
-        if( planText.isBlank() || hour < 0){
-            errorMessage.value = " Enter a valid time and Plan"
+        if( planText.isBlank() || hour < 0 || hour > 24){
+            errorMessage.value = " Enter a valid 24 Hr time and Plan"
             viewModelScope.launch {
                 delay(5000)
                 errorMessage.value =""
             }
+
             return
 
         }
@@ -52,6 +63,8 @@ class PlanViewModel:ViewModel() {
                     return
         }
         }
+
+
         viewModelScope.launch {
             PlansRepo.createPlan(plan)
             plans.add(plan)
